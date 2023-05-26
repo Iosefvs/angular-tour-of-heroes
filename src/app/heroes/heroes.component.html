@@ -22,6 +22,7 @@
         <!--<span>-
         <span class="name">{{hero.name}}</span> </span>  -->
       </a>
+      <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
       <!--</button>-->
     </li>
   </ul>
@@ -29,7 +30,15 @@
   <!-- 
   <app-hero-detail [hero]="selectedHero"></app-hero-detail>  
 -->
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
 
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>
+</div>
  <!--
   <div *ngIf="selectedHero">
     <h2>{{selectedHero.name | uppercase}} Details</h2>
